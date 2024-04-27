@@ -1,8 +1,26 @@
 <script lang="ts">
 	import github from '$lib/assets/svg/github.svg';
 	import linkedin from '$lib/assets/svg/linkedin.svg';
+	import { onMount } from 'svelte';
+	import { rainbow } from './rainbow.js';
 
+	let canvas: HTMLCanvasElement;
+
+	onMount(() => {
+		const context = canvas.getContext('2d');
+
+		let frame = requestAnimationFrame(function loop(t) {
+			frame = requestAnimationFrame(loop);
+			rainbow(context!, t);
+		});
+
+		return () => {
+			cancelAnimationFrame(frame);
+		};
+	});
 </script>
+
+<canvas bind:this={canvas}></canvas>
 
 <div class="flex flex-col justify-center items-center h-screen">
 	<div>
@@ -22,6 +40,14 @@
 	:global(html) {
 		background-color: theme(colors.gray.100);
 	}
+
+  canvas {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+  }
 
 	.text {
 		@apply text-4xl font-bold opacity-35;
