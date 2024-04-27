@@ -3,8 +3,6 @@ name: Pages CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ] # Test purpose only
   workflow_dispatch:
 
 concurrency:
