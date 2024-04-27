@@ -41,13 +41,13 @@
 		background-color: theme(colors.gray.100);
 	}
 
-  canvas {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-  }
+	canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
 
 	.text {
 		@apply text-4xl font-bold opacity-35;
