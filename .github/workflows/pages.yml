@@ -30,6 +30,7 @@ jobs:
       - name: Save the build
         uses: actions/upload-pages-artifact@v3
         with:
+          name: build
           path: 'build/'
 
   deploy:
